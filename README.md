@@ -4,8 +4,8 @@ This repository contains an example project to demonstrate the BUG related on a 
 It contains the minimum code needed to reproduce the problem.
 
 ## The BUG
-The `9.0.0` version of the `flutter_map_tile_caching` plugin doesn't work properly when it runs with the `background_location_tracker` plugin.
-When the app's running on background and the application returns to foreground, the `main.dart` file runs and the `flutter_map_tile_caching` try initialize. However, the it generates the follow error:
+The 9.0.0 version of the `flutter_map_tile_caching` plugin doesn't work properly when it runs with the `background_location_tracker` plugin.
+When the app's running on background and the application returns to foreground, the `main.dart` file runs and the flutter_map_tile_caching try to initialize. However, it generates the follow error:
 
 
 `
