@@ -1,16 +1,31 @@
-# fmtc_with_background
+## Description
 
-A new Flutter project.
+This repository contains an example project to demonstrate the BUG related on a issue of `flutter_map_tile_caching` plugin.
+It contains the minimum code needed to reproduce the problem.
 
-## Getting Started
+## The BUG
+The `9.0.0` version of the `flutter_map_tile_caching` plugin doesn't work properly when it runs with the `background_location_tracker` plugin.
+When the app's running on background and the application returns to foreground, the `main.dart` file runs and the `flutter_map_tile_caching` try initialize. However, the it generates the follow error:
 
-This project is a starting point for a Flutter application.
 
-A few resources to get you started if this is your first Flutter project:
+`
+StateError (Bad state: failed to create store: Cannot open store: another store is still open using the same path: "/data/data/com.example.app_name/app_flutter/fmtc" (OBX_ERROR code 10001))
+`
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+That, makes the map screen doesn't be displayed and generates the follow exception:
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+`
+RootUnavailable (RootUnavailable: The requested backend/root was unavailable)
+`
+
+# How to reproduce
+- Run the application in Android devices (emulators or real real devices)
+- Allow the location permission for "While using the app"
+- Allow the location permission for "All the time"
+    * That's required to the app runs on background mode
+- Click on the play floating button 
+    * It starts the background service
+- Click on the device home button
+    * Required to don't kill the application completely 
+- Click on the device recent apps button and remove the app from recent apps
+- Open the app again
