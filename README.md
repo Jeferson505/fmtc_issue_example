@@ -19,6 +19,10 @@ RootUnavailable (RootUnavailable: The requested backend/root was unavailable)
 `
 
 # How to reproduce
+This repository has a file called `release_example.mkv`. It's a video recorded from an Pixel 8 emulator with Android 14. It demonstrates the step-by-step necessary to reproduce the bug.
+
+Additionally, all steps are described here:
+
 - Run the application in Android devices (emulators or real real devices)
 - Allow the location permission for "While using the app"
 - Allow the location permission for "All the time"
